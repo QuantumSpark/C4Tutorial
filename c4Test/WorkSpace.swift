@@ -9,81 +9,81 @@
 import UIKit
 
 class WorkSpace: CanvasController {
+    var views = [View]()
     var circles = [Circle]()
-    var wedges = [Wedge]()
+    var container: View!
+
+    let duration = 3.0
+    var viewAnimationGroup: ViewAnimationGroup!
+    var circleAnimationGroup: ViewAnimationGroup!
+
+    var animationTimer: Timer!
 
     override func setup() {
-       let d = 160.0
-        canvas.backgroundColor = white
+        canvas.backgroundColor = Color(red: 64, green: 177, blue: 239, alpha: 1.0)
+        createViewsCircles()
+        createAnimations()
+        animationTimer = Timer(interval: duration/4.0) {
+            self.viewAnimationGroup.animate()
+              self.circleAnimationGroup.animate()
+        }
+        animationTimer.start()
+        animationTimer.fire()
+        let containerAnim = ViewAnimation(duration: duration) {
+            self.container.rotation += 2*M_PI
+        }
+        containerAnim.curve = .Linear
+        containerAnim.repeats = true
+        containerAnim.animate()
+    }
 
-        let container = View(frame: Rect(0,0,d,d))
-        container.backgroundColor = white
-        container.center = canvas.center
+    func createViewsCircles() {
+        container = View(frame: Rect(0,0,1,1))
+        for _ in 1...4 {
+            let v = View(frame: Rect(0,0,10,10))
+            views.append(v)
 
+            let c = Circle(center: v.center, radius: v.width/2.0)
+            c.lineWidth = 10.0
+            c.strokeColor = white
+            c.fillColor = white
+            circles.append(c)
+            v.add(c)
+            v.anchorPoint = Point(0.5,7.5)
+            v.center = container.center
+            container.add(v)
+        }
         canvas.add(container)
+        container.center = canvas.center
+    }
 
-        let points = [Point(), Point(d,0), Point(d,d), Point(0,d)]
-        for i in 0...3 {
-            let circle = Circle(center: points[i], radius: d/2.0 - 5.0)
-            circle.fillColor = black
-            circle.lineWidth = 0
-            circles.append(circle)
-            container.add(circle)
-
-            let wedge = Wedge(center: circle.bounds.center, radius: d/2, start: M_PI_2 * Double(i), end: M_PI_2 * (1+Double(i)))
-            wedge.fillColor = white
-            wedge.lineWidth = 0.0
-            wedges.append(wedge)
-            circle.add(wedge)
-        }
-
-        let mainSquare = View(frame: container.frame)
-        mainSquare.backgroundColor = white
-        mainSquare.hidden = true
-        canvas.add(mainSquare)
-
-        let ϴ = M_PI
-
-        let containerRotateForward = ViewAnimation(duration: 1.25) {
-            for circle in self.circles {
-                circle.rotation += ϴ * 2.0 //each circle does a full rotation
+    func createAnimations() {
+        var canims = [ViewAnimation]()
+        var vanims = [ViewAnimation]()
+        for i in 0..<views.count {
+            let v = views[i]
+            let offset = Double(i) * 0.1 + 0.05
+            let va = ViewAnimation(duration: duration/4.0 + 0.3) {
+                v.rotation += M_PI
             }
-            container.rotation += ϴ / 2.0 //the container does a quarter rotation
-        }
-        containerRotateForward.delay = 0.25 //the animation waits 0.25s to start
-        containerRotateForward.curve = .EaseInOut
+            va.delay = offset
+            vanims.append(va)
 
-
-        let containerRotateBackward = ViewAnimation(duration: 1.25) {
-            for circle in self.circles {
-                circle.rotation -= ϴ * 2.0 //each circle does a full rotation
+            let c = circles[i]
+            let ca = ViewAnimation(duration: duration/8.0 + 0.15) {
+                c.lineWidth = 0.0
             }
-            container.rotation -= ϴ / 2.0 //the container does a quarter rotation
-            mainSquare.rotation += ϴ / 2.0 //the main square does full rotation
-        }
-
-        containerRotateBackward.delay = 0.25
-        containerRotateBackward.curve = .EaseInOut
-
-
-        containerRotateForward.addCompletionObserver {
-            mainSquare.hidden = false //reveal the main square
-            for wedge in self.wedges {
-                wedge.hidden = true //hide the wedges
+            ca.delay = offset
+            ca.autoreverses = true
+            ca.addCompletionObserver {
+                ShapeLayer.disableActions = true
+                c.lineWidth = 10.0
+                ShapeLayer.disableActions = false
             }
-            containerRotateBackward.animate()
+            canims.append(ca)
         }
-
-        containerRotateBackward.addCompletionObserver {
-            mainSquare.hidden = true //hide the main square
-            for wedge in self.wedges {
-                wedge.hidden = false //reveal the wedges
-            }
-            containerRotateForward.animate()
-        }
-
-        containerRotateForward.animate()
-
+        viewAnimationGroup = ViewAnimationGroup(animations: vanims)
+        circleAnimationGroup = ViewAnimationGroup(animations: canims)
 
     }
 }
