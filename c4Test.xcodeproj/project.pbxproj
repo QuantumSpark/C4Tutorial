@@ -83,6 +83,7 @@
 		D0ABB62B1F4A6E200012375A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB6291F4A6E200012375A /* Main.storyboard */; };
 		D0ABB62D1F4A6E200012375A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB62C1F4A6E200012375A /* Assets.xcassets */; };
 		D0ABB6301F4A6E200012375A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB62E1F4A6E200012375A /* LaunchScreen.storyboard */; };
+		E26BE6261F50A16500AD98C1 /* BlackVelvet.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E26BE6251F50A16500AD98C1 /* BlackVelvet.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,7 @@
 		D0ABB62C1F4A6E200012375A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0ABB62F1F4A6E200012375A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0ABB6311F4A6E200012375A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E26BE6251F50A16500AD98C1 /* BlackVelvet.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlackVelvet.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 		D0ABB60B1F4A6E200012375A /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				E26BE6251F50A16500AD98C1 /* BlackVelvet.m4a */,
 				D0ABB60C1F4A6E200012375A /* Loop.aif */,
 				D0ABB60E1F4A6E200012375A /* halo.mp4 */,
 				D0ABB6101F4A6E200012375A /* haloGray.mp4 */,
@@ -349,7 +352,7 @@
 				TargetAttributes = {
 					D0ABB58E1F4A6E1F0012375A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = L822HFXC5L;
+						DevelopmentTeam = MBXL6U2ZWQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -382,6 +385,7 @@
 				D0ABB6111F4A6E200012375A /* haloGray.mp4 in Resources */,
 				D0ABB6301F4A6E200012375A /* LaunchScreen.storyboard in Resources */,
 				D0ABB62B1F4A6E200012375A /* Main.storyboard in Resources */,
+				E26BE6261F50A16500AD98C1 /* BlackVelvet.m4a in Resources */,
 				D0ABB62D1F4A6E200012375A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,10 +591,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = MBXL6U2ZWQ;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = QuantumSpark.c4Test;
+				PRODUCT_BUNDLE_IDENTIFIER = liujohnson118.c4Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -600,10 +604,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = MBXL6U2ZWQ;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = QuantumSpark.c4Test;
+				PRODUCT_BUNDLE_IDENTIFIER = liujohnson118.c4Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
