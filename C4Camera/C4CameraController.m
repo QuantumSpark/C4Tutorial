@@ -24,7 +24,7 @@
 	if (self) {
 		_previewLayer = nil;
         _captureQuality = C4CameraQualityPhoto;
-        _cameraPosition = CAMERAFRONT;
+          = CAMERAFRONT;
 	}
 	return self;
 }

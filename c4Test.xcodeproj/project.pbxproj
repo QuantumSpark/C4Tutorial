@@ -84,6 +84,7 @@
 		D0ABB62D1F4A6E200012375A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB62C1F4A6E200012375A /* Assets.xcassets */; };
 		D0ABB6301F4A6E200012375A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB62E1F4A6E200012375A /* LaunchScreen.storyboard */; };
 		D0D7CC8A1F5476AA0037E126 /* C4Camera in Resources */ = {isa = PBXBuildFile; fileRef = D0D7CC891F5476AA0037E126 /* C4Camera */; };
+		E2ED90411F54831100678014 /* C4CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ED90401F54831100678014 /* C4CameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +167,7 @@
 		D0ABB62F1F4A6E200012375A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0ABB6311F4A6E200012375A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0D7CC891F5476AA0037E126 /* C4Camera */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C4Camera; sourceTree = "<group>"; };
+		E2ED90401F54831100678014 /* C4CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C4CameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				D0ABB6071F4A6E200012375A /* UIViewController+C4View.swift */,
 				D0ABB6091F4A6E200012375A /* UIView+AddRemove.swift */,
 				D0ABB6121F4A6E200012375A /* Filters */,
+				E2ED90401F54831100678014 /* C4CameraController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -352,7 +355,7 @@
 				TargetAttributes = {
 					D0ABB58E1F4A6E1F0012375A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = L822HFXC5L;
+						DevelopmentTeam = MBXL6U2ZWQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -459,6 +462,7 @@
 				D0ABB5F01F4A6E200012375A /* Triangle.swift in Sources */,
 				D0ABB6261F4A6E200012375A /* Twirl.swift in Sources */,
 				D0ABB59D1F4A6E1F0012375A /* Math.swift in Sources */,
+				E2ED90411F54831100678014 /* C4CameraController.swift in Sources */,
 				D0ABB5D81F4A6E1F0012375A /* Polygon.swift in Sources */,
 				D0ABB5D01F4A6E1F0012375A /* Layer.swift in Sources */,
 				D0ABB5E61F4A6E1F0012375A /* ShapeLayer.swift in Sources */,
@@ -591,10 +595,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = MBXL6U2ZWQ;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = QuantumSpark.c4Test;
+				PRODUCT_BUNDLE_IDENTIFIER = johnson.c4Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -604,10 +608,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = MBXL6U2ZWQ;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = QuantumSpark.c4Test;
+				PRODUCT_BUNDLE_IDENTIFIER = johnson.c4Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
