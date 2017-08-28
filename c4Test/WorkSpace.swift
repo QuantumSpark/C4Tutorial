@@ -12,6 +12,7 @@ class WorkSpace: CanvasController {
     override func setup() {
         let camera = Camera(frame: Rect(0,0,500,500))
         canvas.add(camera)
+        
     }
 }
 

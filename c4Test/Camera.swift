@@ -79,8 +79,6 @@ class Camera: View, AVCapturePhotoCaptureDelegate {
         captureSesssion = AVCaptureSession()
         captureSesssion.sessionPreset = AVCaptureSessionPresetPhoto
         cameraOutput = AVCapturePhotoOutput()
-
-        //        let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         let device = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
             .map { $0 as! AVCaptureDevice }
             .filter { $0.position == .front}
@@ -93,7 +91,6 @@ class Camera: View, AVCapturePhotoCaptureDelegate {
                     captureSesssion.addOutput(cameraOutput)
                     self.cameraView.setUpPreviewLayer(with: captureSesssion)
                     self.cameraView.getPreviewLayer().frame = self.cameraView.bounds
-//                    previewView.layer.addSublayer(previewLayer)
                     captureSesssion.startRunning()
                 }
             } else {
@@ -102,5 +99,86 @@ class Camera: View, AVCapturePhotoCaptureDelegate {
         } else {
             print("some problem here")
         }
+
+
+        self.addTapGestureRecognizer { (_, _, _) in
+            let settings = AVCapturePhotoSettings()
+            let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
+            let previewFormat = [
+                kCVPixelBufferPixelFormatTypeKey as String: previewPixelType,
+                kCVPixelBufferWidthKey as String: 160,
+                kCVPixelBufferHeightKey as String: 160
+            ]
+            settings.previewPhotoFormat = previewFormat
+            self.cameraOutput.capturePhoto(with: settings, delegate: self)
+        }
     }
-}
+
+    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+
+        if let error = error {
+            print("error occure : \(error.localizedDescription)")
+        }
+
+        if  let sampleBuffer = photoSampleBuffer,
+            let previewBuffer = previewPhotoSampleBuffer,
+            let dataImage =  AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer:  sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
+            print(UIImage(data: dataImage)?.size as Any)
+
+            let dataProvider = CGDataProvider(data: dataImage as CFData)
+            let cgImageRef: CGImage! = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
+            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
+            UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+        } else {
+            print("some error here")
+        }
+           }
+
+
+    // This method you can use somewhere you need to know camera permission   state
+//    func askPermission() {
+//        print("here")
+//        let cameraPermissionStatus =  AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+//
+//        switch cameraPermissionStatus {
+//        case .authorized:
+//            print("Already Authorized")
+//        case .denied:
+//            print("denied")
+//
+//            let alert = UIAlertController(title: "Sorry :(" , message: "But  could you please grant permission for camera within device settings",  preferredStyle: .alert)
+//            let action = UIAlertAction(title: "Ok", style: .cancel,  handler: nil)
+//            alert.addAction(action)
+//            present(alert, animated: true, completion: nil)
+//
+//        case .restricted:
+//            print("restricted")
+//        default:
+//            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: {
+//                [weak self]
+//                (granted :Bool) -> Void in
+//
+//                if granted == true {
+//                    // User granted
+//                    print("User granted")
+//                    DispatchQueue.main.async(){
+//                        //Do smth that you need in main thread
+//                    }
+//                }
+//                else {
+//                    // User Rejected
+//                    print("User Rejected")
+//
+//                    DispatchQueue.main.async(){
+//                        let alert = UIAlertController(title: "WHY?" , message:  "Camera it is the main feature of our application", preferredStyle: .alert)
+//                        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+//                        alert.addAction(action)
+//                        self?.present(alert, animated: true, completion: nil)
+//                    }
+//                }
+//            });
+//        }
+//    }
+
+
+   }
