@@ -83,6 +83,8 @@
 		D0ABB62B1F4A6E200012375A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB6291F4A6E200012375A /* Main.storyboard */; };
 		D0ABB62D1F4A6E200012375A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB62C1F4A6E200012375A /* Assets.xcassets */; };
 		D0ABB6301F4A6E200012375A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB62E1F4A6E200012375A /* LaunchScreen.storyboard */; };
+		D0D7CC8A1F5476AA0037E126 /* C4Camera in Resources */ = {isa = PBXBuildFile; fileRef = D0D7CC891F5476AA0037E126 /* C4Camera */; };
+		D0D7CC951F5492090037E126 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7CC941F5492090037E126 /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +166,8 @@
 		D0ABB62C1F4A6E200012375A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0ABB62F1F4A6E200012375A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0ABB6311F4A6E200012375A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0D7CC891F5476AA0037E126 /* C4Camera */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C4Camera; sourceTree = "<group>"; };
+		D0D7CC941F5492090037E126 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +241,7 @@
 		D0ABB5AA1F4A6E1F0012375A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D0D7CC891F5476AA0037E126 /* C4Camera */,
 				D0ABB5AB1F4A6E1F0012375A /* Animation.swift */,
 				D0ABB5AD1F4A6E1F0012375A /* Arc.swift */,
 				D0ABB5AF1F4A6E1F0012375A /* AudioPlayer.swift */,
@@ -270,6 +275,7 @@
 				D0ABB5E71F4A6E1F0012375A /* StoredAnimation.swift */,
 				D0ABB5E91F4A6E1F0012375A /* Star.swift */,
 				D0ABB5EB1F4A6E1F0012375A /* TextShape.swift */,
+				D0D7CC941F5492090037E126 /* Camera.swift */,
 				D0ABB5ED1F4A6E1F0012375A /* Timer.swift */,
 				D0ABB5EF1F4A6E200012375A /* Triangle.swift */,
 				D0ABB5F11F4A6E200012375A /* UIImage+Color.swift */,
@@ -378,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0ABB60D1F4A6E200012375A /* Loop.aif in Resources */,
+				D0D7CC8A1F5476AA0037E126 /* C4Camera in Resources */,
 				D0ABB60F1F4A6E200012375A /* halo.mp4 in Resources */,
 				D0ABB6111F4A6E200012375A /* haloGray.mp4 in Resources */,
 				D0ABB6301F4A6E200012375A /* LaunchScreen.storyboard in Resources */,
@@ -401,6 +408,7 @@
 				D0ABB5DE1F4A6E1F0012375A /* RegularPolygon.swift in Sources */,
 				D0ABB5991F4A6E1F0012375A /* EventSource.swift in Sources */,
 				D0ABB5F41F4A6E200012375A /* UIImage+AddRemove.swift in Sources */,
+				D0D7CC951F5492090037E126 /* Camera.swift in Sources */,
 				D0ABB6141F4A6E200012375A /* Bloom.swift in Sources */,
 				D0ABB5DC1F4A6E1F0012375A /* Rectangle.swift in Sources */,
 				D0ABB5E01F4A6E1F0012375A /* ScreenRecorder.swift in Sources */,
@@ -590,7 +598,7 @@
 				DEVELOPMENT_TEAM = L822HFXC5L;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = QuantumSpark.c4Test;
+				PRODUCT_BUNDLE_IDENTIFIER = johnson.c4Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -603,7 +611,7 @@
 				DEVELOPMENT_TEAM = L822HFXC5L;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = QuantumSpark.c4Test;
+				PRODUCT_BUNDLE_IDENTIFIER = johnson.c4Test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
