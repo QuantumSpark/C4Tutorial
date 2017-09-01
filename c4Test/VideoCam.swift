@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 
-class VideoCam: View {
+class VideoCam: View, AVCaptureFileOutputRecordingDelegate {
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer {
         get {
             return self.cameraView.cameraPreviewLayer
@@ -27,7 +27,9 @@ class VideoCam: View {
     
     var activeInput: AVCaptureDeviceInput!
 
-    
+    var outputURL: URL!
+
+    var tapCounter = 0
     
     public var constrainsProportions: Bool = true
     
@@ -69,8 +71,19 @@ class VideoCam: View {
             setupPreview()
             startSession()
         }
+
+        self.addTapGestureRecognizer { (_, _, _) in
+            if self.tapCounter == 0 {
+                self.startCapture()
+                self.tapCounter+=1
+            } else if self.tapCounter == 1 {
+                self.stopRecording()
+                self.tapCounter = 0
+            }
+        }
+
     }
-    
+
     public func  setupSession() -> Bool {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         
@@ -127,7 +140,31 @@ class VideoCam: View {
     func videoQueue() -> DispatchQueue {
         return DispatchQueue.main
     }
-    
+
+
+    func currentVideoOrientation() -> AVCaptureVideoOrientation {
+        var orientation: AVCaptureVideoOrientation
+
+        switch UIDevice.current.orientation {
+        case .portrait:
+            orientation = AVCaptureVideoOrientation.portrait
+        case .landscapeRight:
+            orientation = AVCaptureVideoOrientation.landscapeLeft
+        case .portraitUpsideDown:
+            orientation = AVCaptureVideoOrientation.portraitUpsideDown
+        default:
+            orientation = AVCaptureVideoOrientation.landscapeRight
+        }
+        
+        return orientation
+    }
+
+    func startCapture() {
+
+        startRecording()
+        
+    }
+
     func stopSession() {
         if captureSession.isRunning {
             videoQueue().async {
@@ -135,4 +172,73 @@ class VideoCam: View {
             }
         }
     }
+
+    func tempURL() -> URL? {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+
+
+        let path = paths.appendingPathComponent(NSUUID().uuidString + "fuckyou.mp4")
+        return path
+
+    }
+    func startRecording() {
+        print("yes we are recording")
+        if movieOutput.isRecording == false {
+
+            let connection = movieOutput.connection(withMediaType: AVMediaTypeVideo)
+            if (connection?.isVideoOrientationSupported)! {
+                connection?.videoOrientation = currentVideoOrientation()
+            }
+
+            if (connection?.isVideoStabilizationSupported)! {
+                connection?.preferredVideoStabilizationMode = AVCaptureVideoStabilizationMode.auto
+            }
+
+            let device = activeInput.device
+            if (device?.isSmoothAutoFocusSupported)! {
+                do {
+                    try device?.lockForConfiguration()
+                    device?.isSmoothAutoFocusEnabled = false
+                    device?.unlockForConfiguration()
+                } catch {
+                    print("Error setting configuration: \(error)")
+                }
+
+            }
+
+            //EDIT2: And I forgot this
+            outputURL = tempURL()
+            movieOutput.startRecording(toOutputFileURL: outputURL, recordingDelegate: self)
+
+        }
+        else {
+            stopRecording()
+        }
+
+    }
+
+    func stopRecording() {
+        if movieOutput.isRecording == true {
+            print("stopped reccording")
+            movieOutput.stopRecording()
+        }
+    }
+
+    func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
+
+    }
+
+    func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+        if (error != nil) {
+            print("Error recording movie: \(error!.localizedDescription)")
+        } else {
+            print("save video to Album")
+             UISaveVideoAtPathToSavedPhotosAlbum(outputURL.path, nil, nil, nil)
+            _ = outputURL as URL
+            
+        }
+        outputURL = nil
+    }
+
+
 }
