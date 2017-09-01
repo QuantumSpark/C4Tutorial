@@ -10,7 +10,9 @@ import UIKit
 
 class WorkSpace: CanvasController {
     override func setup() {
-        let camera = Camera(frame: Rect(0,0,500,500))
+        let camera = VideoCam(frame: Rect(0,0,500,500))
+        
+        camera.backgroundColor = C4Blue
         canvas.add(camera)
         
     }

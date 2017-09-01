@@ -85,6 +85,7 @@
 		D0ABB6301F4A6E200012375A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0ABB62E1F4A6E200012375A /* LaunchScreen.storyboard */; };
 		D0D7CC8A1F5476AA0037E126 /* C4Camera in Resources */ = {isa = PBXBuildFile; fileRef = D0D7CC891F5476AA0037E126 /* C4Camera */; };
 		D0D7CC951F5492090037E126 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D7CC941F5492090037E126 /* Camera.swift */; };
+		E2A57C691F59BD02006D7B38 /* VideoCam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A57C681F59BD02006D7B38 /* VideoCam.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,7 @@
 		D0ABB6311F4A6E200012375A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0D7CC891F5476AA0037E126 /* C4Camera */ = {isa = PBXFileReference; lastKnownFileType = folder; path = C4Camera; sourceTree = "<group>"; };
 		D0D7CC941F5492090037E126 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		E2A57C681F59BD02006D7B38 /* VideoCam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCam.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 				D0ABB5E51F4A6E1F0012375A /* ShapeLayer.swift */,
 				D0ABB5E71F4A6E1F0012375A /* StoredAnimation.swift */,
 				D0ABB5E91F4A6E1F0012375A /* Star.swift */,
+				E2A57C681F59BD02006D7B38 /* VideoCam.swift */,
 				D0ABB5EB1F4A6E1F0012375A /* TextShape.swift */,
 				D0D7CC941F5492090037E126 /* Camera.swift */,
 				D0ABB5ED1F4A6E1F0012375A /* Timer.swift */,
@@ -355,7 +358,7 @@
 				TargetAttributes = {
 					D0ABB58E1F4A6E1F0012375A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = L822HFXC5L;
+						DevelopmentTeam = MBXL6U2ZWQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -457,6 +460,7 @@
 				D0ABB5AC1F4A6E1F0012375A /* Animation.swift in Sources */,
 				D0ABB5BE1F4A6E1F0012375A /* Generator.swift in Sources */,
 				D0ABB5FC1F4A6E200012375A /* View+KeyValues.swift in Sources */,
+				E2A57C691F59BD02006D7B38 /* VideoCam.swift in Sources */,
 				D0ABB5FE1F4A6E200012375A /* View+Render.swift in Sources */,
 				D0ABB6181F4A6E200012375A /* ColorBurn.swift in Sources */,
 				D0ABB5C01F4A6E1F0012375A /* Gradient.swift in Sources */,
@@ -595,10 +599,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = MBXL6U2ZWQ;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = johnson.c4Test;
+				PRODUCT_BUNDLE_IDENTIFIER = UBC.learn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -608,10 +612,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L822HFXC5L;
+				DEVELOPMENT_TEAM = MBXL6U2ZWQ;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = johnson.c4Test;
+				PRODUCT_BUNDLE_IDENTIFIER = UBC.learn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
