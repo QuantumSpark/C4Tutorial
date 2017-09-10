@@ -358,7 +358,7 @@
 				TargetAttributes = {
 					D0ABB58E1F4A6E1F0012375A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = MBXL6U2ZWQ;
+						DevelopmentTeam = G3GED29J33;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -599,7 +599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MBXL6U2ZWQ;
+				DEVELOPMENT_TEAM = G3GED29J33;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = UBC.learn;
@@ -612,7 +612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MBXL6U2ZWQ;
+				DEVELOPMENT_TEAM = G3GED29J33;
 				INFOPLIST_FILE = c4Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = UBC.learn;
