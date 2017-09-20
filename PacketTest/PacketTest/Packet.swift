@@ -1,15 +1,10 @@
 //
 //  Packet.swift
-//  PacketTest
+//  PacketRecieverTest
 //
-//  Created by Geyi Liu on 2017-09-08.
-//  Copyright © 2017 Geyi Liu. All rights reserved.
+//  Created by James Park on 2017-09-08.
+//  Copyright © 2017 James Park. All rights reserved.
 //
-// Copyright © 2016 Slant.
-//
-// This file is part of MO. The full MO copyright notice, including terms
-// governing use, modification, and redistribution, is contained in the file
-// LICENSE at the root of the source code distribution tree.
 
 import Foundation
 
@@ -51,6 +46,11 @@ public struct Packet: Equatable {
     /// The packet identifier.
     public var id = -1
     
+    //public var ipadID = -1
+    
+    
+    //public var frameID = UUID()
+    
     /// Payload data.
     public var payload: Data?
     
@@ -59,6 +59,7 @@ public struct Packet: Equatable {
         self.packetType = type
         self.id = id
         self.payload = payload
+        //self.ipadID = ipadID
     }
     
     /// Serializes the packet.
@@ -71,6 +72,8 @@ public struct Packet: Equatable {
         packetData.append(packetSize)
         packetData.append(packetType.rawValue)
         packetData.append(Int32(id))
+        //packetData.append(Int32(ipadID))
+        //packetData.append(Int32(frameID.uuidString))
         
         if let d = payload, d.count > 0 {
             packetData.append(d)
@@ -108,4 +111,3 @@ public struct Packet: Equatable {
 public func == (lhs: Packet, rhs: Packet) -> Bool {
     return lhs.packetType == rhs.packetType && lhs.id == rhs.id
 }
-

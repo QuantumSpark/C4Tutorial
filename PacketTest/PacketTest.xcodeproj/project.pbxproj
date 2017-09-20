@@ -90,6 +90,7 @@
 		E251168E1F634A710064AF54 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251168D1F634A710064AF54 /* SocketManager.swift */; };
 		E2CFF18E1F634FAA00555D55 /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFF18D1F634FAA00555D55 /* Packet.swift */; };
 		E2CFF1901F6350F600555D55 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFF18F1F6350F600555D55 /* DataExtension.swift */; };
+		E2E7470F1F663D17003822EA /* VideoCam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7470E1F663D17003822EA /* VideoCam.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		E251168D1F634A710064AF54 /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		E2CFF18D1F634FAA00555D55 /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
 		E2CFF18F1F6350F600555D55 /* DataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		E2E7470E1F663D17003822EA /* VideoCam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCam.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 				E25116451F6348DD0064AF54 /* Media */,
 				E2CFF18D1F634FAA00555D55 /* Packet.swift */,
 				E2CFF18F1F6350F600555D55 /* DataExtension.swift */,
+				E2E7470E1F663D17003822EA /* VideoCam.swift */,
 			);
 			path = PacketTest;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				E25116081F6348DC0064AF54 /* Line.swift in Sources */,
 				E25116321F6348DC0064AF54 /* View+Animation.swift in Sources */,
 				E25115E81F6348DC0064AF54 /* Arc.swift in Sources */,
+				E2E7470F1F663D17003822EA /* VideoCam.swift in Sources */,
 				E25116401F6348DD0064AF54 /* UIGestureRecognizer+Closure.swift in Sources */,
 				E25115FC1F6348DC0064AF54 /* GradientLayer.swift in Sources */,
 				E25116221F6348DC0064AF54 /* StoredAnimation.swift in Sources */,
