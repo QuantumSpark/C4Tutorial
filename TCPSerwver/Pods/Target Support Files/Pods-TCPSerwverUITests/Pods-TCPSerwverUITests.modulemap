@@ -1,0 +1,6 @@
+framework module Pods_TCPSerwverUITests {
+  umbrella header "Pods-TCPSerwverUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,896 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		141145EC4AD9285A1BCFEC97F29A841C /* Pods-TCPSerwver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2220D570CEBFF23EFCF3FCD28401C13A /* Pods-TCPSerwver-dummy.m */; };
+		1CB7EE3CC3161C7105D6A0EA2AD19871 /* Pods-TCPSerwverUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 85C76A99F838889777F69FC1316E3EB7 /* Pods-TCPSerwverUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3936C9A4A743AA2E5822538A17BA7974 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 21E505997513D83AFD4626EECDFF20D1 /* ytcpsocket.c */; };
+		4CE0528881962248E37E8F1DC5957F0B /* Pods-TCPSerwverUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 784715D41D70AFAE31CE72D7CD8D1B44 /* Pods-TCPSerwverUITests-dummy.m */; };
+		51C42BB4B164AD8B973932DE5032ED13 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4EEBEF28F2D922BF256FED95DA86C /* Result.swift */; };
+		70E544D4F0B7F8F4FADA718075217FB9 /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886AD7CDE1F5CC782474EF3443C2BA56 /* UDPClient.swift */; };
+		8584BD39151F33965DB405F41020D9D3 /* Pods-TCPSerwverTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E01F38A70D4A63297F6D03A762BE95 /* Pods-TCPSerwverTests-dummy.m */; };
+		85E23C8650A0C43D17BE14AB34A37893 /* SwiftSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B9EF3006C7C4B084D70916C2736D38C1 /* SwiftSocket-dummy.m */; };
+		911A78E2A7CFF799150A966B8E69AFA1 /* Pods-TCPSerwverTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 09972FFB4C3A74EE307AF814B03A008D /* Pods-TCPSerwverTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94D211CFBEB17A1892D256365AB666D1 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 5752BCCE211EF17F51DD509637DDD333 /* yudpsocket.c */; };
+		959C1D76B5F964090152A058C55FF940 /* Pods-TCPSerwver-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E71CFB9759DA79E205945DFC60F01E0 /* Pods-TCPSerwver-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		986499916FF775A8A973CD475CA7A0DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */; };
+		A2387DACE205A423E7F284F56E7DD762 /* TCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C073B5E44A489A40FEBFC1148C40D1B5 /* TCPClient.swift */; };
+		BD8EC0DF3B73592B0844D133E05D3619 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7FF9585981F7B619C85C2C6E4DCF91 /* Socket.swift */; };
+		C31070BC6B745F370DCCFDE3F738E483 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */; };
+		D53D220E94DC66F2449E5BAC0E7BB42B /* SwiftSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 566633F20D21C285C3F09F065316813F /* SwiftSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E90BB50CCD2180C14F0E5413E9321E7D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */; };
+		F946CB809254D633F1A39EDDA2B25D14 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B48ED6C8A8878275CFEF5FA7ED76C5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF031A8EA6638235459B2DAE51E31450;
+			remoteInfo = SwiftSocket;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09972FFB4C3A74EE307AF814B03A008D /* Pods-TCPSerwverTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TCPSerwverTests-umbrella.h"; sourceTree = "<group>"; };
+		0BA3EAF933622CAD63913CF6190FEEBF /* Pods-TCPSerwverUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TCPSerwverUITests.modulemap"; sourceTree = "<group>"; };
+		0E71CFB9759DA79E205945DFC60F01E0 /* Pods-TCPSerwver-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TCPSerwver-umbrella.h"; sourceTree = "<group>"; };
+		19777E6368FCF0CD860648652822F5BC /* Pods-TCPSerwver-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TCPSerwver-resources.sh"; sourceTree = "<group>"; };
+		21E505997513D83AFD4626EECDFF20D1 /* ytcpsocket.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ytcpsocket.c; path = Sources/ytcpsocket.c; sourceTree = "<group>"; };
+		2220D570CEBFF23EFCF3FCD28401C13A /* Pods-TCPSerwver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TCPSerwver-dummy.m"; sourceTree = "<group>"; };
+		270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		288AAC672D9D7759D0A419449F7C1BEB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31F93E7113EED69B088AB532C45E5FC0 /* SwiftSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSocket-prefix.pch"; sourceTree = "<group>"; };
+		36B28E18C6AB565F811F827A79C51795 /* Pods-TCPSerwverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TCPSerwverUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3E6628FB6408C70F45CCB8C4B81D0D6C /* Pods-TCPSerwverTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TCPSerwverTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3F275928714C21B52B1FFF1D0A58ED02 /* Pods-TCPSerwver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TCPSerwver.debug.xcconfig"; sourceTree = "<group>"; };
+		4982BDD9A41F8EB3E759CD0AB3992075 /* Pods-TCPSerwverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TCPSerwverTests.release.xcconfig"; sourceTree = "<group>"; };
+		4AC6C4E538CE8D141F18E8EBA7A66454 /* Pods-TCPSerwver-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TCPSerwver-frameworks.sh"; sourceTree = "<group>"; };
+		4D4565F528FC0E47AF8C074F97D72AE0 /* Pods-TCPSerwverTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TCPSerwverTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		566633F20D21C285C3F09F065316813F /* SwiftSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSocket-umbrella.h"; sourceTree = "<group>"; };
+		5752BCCE211EF17F51DD509637DDD333 /* yudpsocket.c */ = {isa = PBXFileReference; includeInIndex = 1; name = yudpsocket.c; path = Sources/yudpsocket.c; sourceTree = "<group>"; };
+		5D0B1B825B0518A8E7C92374269A418F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7282BD3517A0439E234A5FBECA2C4C09 /* Pods-TCPSerwverTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TCPSerwverTests.modulemap"; sourceTree = "<group>"; };
+		777B780574BE2141C0C5A02EA2518BF7 /* SwiftSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftSocket.modulemap; sourceTree = "<group>"; };
+		784715D41D70AFAE31CE72D7CD8D1B44 /* Pods-TCPSerwverUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TCPSerwverUITests-dummy.m"; sourceTree = "<group>"; };
+		7EC83740B0BCE63066E81AC861E419FC /* Pods-TCPSerwverTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TCPSerwverTests-frameworks.sh"; sourceTree = "<group>"; };
+		82142883D515325526058C30D8F2C667 /* Pods-TCPSerwverUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TCPSerwverUITests-frameworks.sh"; sourceTree = "<group>"; };
+		8363A39B71C0C0A689B9F8F8AAAD7B43 /* Pods-TCPSerwverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TCPSerwverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		85C76A99F838889777F69FC1316E3EB7 /* Pods-TCPSerwverUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TCPSerwverUITests-umbrella.h"; sourceTree = "<group>"; };
+		85EDD2E85FD19A995FB90A4A9C15E803 /* Pods-TCPSerwverUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TCPSerwverUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		886AD7CDE1F5CC782474EF3443C2BA56 /* UDPClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UDPClient.swift; path = Sources/UDPClient.swift; sourceTree = "<group>"; };
+		8A0186F7AA323E2E7449F1A0F53A286A /* Pods-TCPSerwver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TCPSerwver.release.xcconfig"; sourceTree = "<group>"; };
+		8E4F5A75808A8B78BA2166D5B2B83012 /* Pods_TCPSerwverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TCPSerwverTests.framework; path = "Pods-TCPSerwverTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95FDAFEE3241B41DC0706569CF4E911A /* Pods-TCPSerwverUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TCPSerwverUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		97127948B567B5DF799BECE808D6BFBF /* SwiftSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftSocket.xcconfig; sourceTree = "<group>"; };
+		9CF22CB071D3465975A47DF95BAEFB51 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ED4EEBEF28F2D922BF256FED95DA86C /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Sources/Result.swift; sourceTree = "<group>"; };
+		B3A891452454A2F164A85815CEE2357A /* Pods-TCPSerwver.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TCPSerwver.modulemap"; sourceTree = "<group>"; };
+		B9EF3006C7C4B084D70916C2736D38C1 /* SwiftSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftSocket-dummy.m"; sourceTree = "<group>"; };
+		C073B5E44A489A40FEBFC1148C40D1B5 /* TCPClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TCPClient.swift; path = Sources/TCPClient.swift; sourceTree = "<group>"; };
+		C738C8EF148D87DBC77DCCF572BC2999 /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftSocket.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8265ED0D55A9FD2824B3FD73989AA50 /* Pods-TCPSerwver-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TCPSerwver-acknowledgements.plist"; sourceTree = "<group>"; };
+		D8E373417BC01D1411E3D86CA56771BE /* Pods-TCPSerwverUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TCPSerwverUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DB291A74FAF795D80C072232F0EE117F /* Pods_TCPSerwverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TCPSerwverUITests.framework; path = "Pods-TCPSerwverUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD7FF9585981F7B619C85C2C6E4DCF91 /* Socket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Sources/Socket.swift; sourceTree = "<group>"; };
+		E1F93D72E2C3C722F279A620BBC448D3 /* Pods_TCPSerwver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TCPSerwver.framework; path = "Pods-TCPSerwver.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6BA82B27E72EA5D2BDFA56703769949 /* Pods-TCPSerwver-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TCPSerwver-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E7A21A219D12464154297C361949155A /* Pods-TCPSerwverTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TCPSerwverTests-resources.sh"; sourceTree = "<group>"; };
+		E88497BE91DCA19E9A7A3EF61AA1EA91 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9E01F38A70D4A63297F6D03A762BE95 /* Pods-TCPSerwverTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TCPSerwverTests-dummy.m"; sourceTree = "<group>"; };
+		FA0B4907BE53D0E07FBC0F17D3895781 /* Pods-TCPSerwverUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TCPSerwverUITests-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66FC8F54BCBACC23A5178E4271B7E5EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C31070BC6B745F370DCCFDE3F738E483 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76CB9F8F7AF0E84220D8CC97CEB19C0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E90BB50CCD2180C14F0E5413E9321E7D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A73CCF92CB1144FA9A998921DA4C22E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				986499916FF775A8A973CD475CA7A0DF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DBA738AAF5B907BDB7029DC3F6AF3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F946CB809254D633F1A39EDDA2B25D14 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04C068A18C5413F804A2959126093416 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				270DD1219F1E6CF00379D39F252D87C6 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		04F81F21E9B2EFE1074777E2D2759FF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A44A66ADA1344DA9E7A74277DE6C0CE1 /* SwiftSocket */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		12FC7055A9745AE634F71677A4E8A579 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C92D6BD3742B0F854ACEDC8D2555242B /* Pods-TCPSerwver */,
+				873B09BCB59265AD6B877069BF4FE3A2 /* Pods-TCPSerwverTests */,
+				E0D7FD369143F184F391929A3D0A9253 /* Pods-TCPSerwverUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04C068A18C5413F804A2959126093416 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		611F2408D38DBD58FC6EAEDECB52B4CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1F93D72E2C3C722F279A620BBC448D3 /* Pods_TCPSerwver.framework */,
+				8E4F5A75808A8B78BA2166D5B2B83012 /* Pods_TCPSerwverTests.framework */,
+				DB291A74FAF795D80C072232F0EE117F /* Pods_TCPSerwverUITests.framework */,
+				C738C8EF148D87DBC77DCCF572BC2999 /* SwiftSocket.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				39E9EE8210D861DFD82346C1F5EB7218 /* Frameworks */,
+				04F81F21E9B2EFE1074777E2D2759FF9 /* Pods */,
+				611F2408D38DBD58FC6EAEDECB52B4CB /* Products */,
+				12FC7055A9745AE634F71677A4E8A579 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		873B09BCB59265AD6B877069BF4FE3A2 /* Pods-TCPSerwverTests */ = {
+			isa = PBXGroup;
+			children = (
+				5D0B1B825B0518A8E7C92374269A418F /* Info.plist */,
+				7282BD3517A0439E234A5FBECA2C4C09 /* Pods-TCPSerwverTests.modulemap */,
+				4D4565F528FC0E47AF8C074F97D72AE0 /* Pods-TCPSerwverTests-acknowledgements.markdown */,
+				3E6628FB6408C70F45CCB8C4B81D0D6C /* Pods-TCPSerwverTests-acknowledgements.plist */,
+				E9E01F38A70D4A63297F6D03A762BE95 /* Pods-TCPSerwverTests-dummy.m */,
+				7EC83740B0BCE63066E81AC861E419FC /* Pods-TCPSerwverTests-frameworks.sh */,
+				E7A21A219D12464154297C361949155A /* Pods-TCPSerwverTests-resources.sh */,
+				09972FFB4C3A74EE307AF814B03A008D /* Pods-TCPSerwverTests-umbrella.h */,
+				8363A39B71C0C0A689B9F8F8AAAD7B43 /* Pods-TCPSerwverTests.debug.xcconfig */,
+				4982BDD9A41F8EB3E759CD0AB3992075 /* Pods-TCPSerwverTests.release.xcconfig */,
+			);
+			name = "Pods-TCPSerwverTests";
+			path = "Target Support Files/Pods-TCPSerwverTests";
+			sourceTree = "<group>";
+		};
+		A44A66ADA1344DA9E7A74277DE6C0CE1 /* SwiftSocket */ = {
+			isa = PBXGroup;
+			children = (
+				9ED4EEBEF28F2D922BF256FED95DA86C /* Result.swift */,
+				DD7FF9585981F7B619C85C2C6E4DCF91 /* Socket.swift */,
+				C073B5E44A489A40FEBFC1148C40D1B5 /* TCPClient.swift */,
+				886AD7CDE1F5CC782474EF3443C2BA56 /* UDPClient.swift */,
+				21E505997513D83AFD4626EECDFF20D1 /* ytcpsocket.c */,
+				5752BCCE211EF17F51DD509637DDD333 /* yudpsocket.c */,
+				AE1F57FCCE0C2C4E7D884CED9E6BE226 /* Support Files */,
+			);
+			name = SwiftSocket;
+			path = SwiftSocket;
+			sourceTree = "<group>";
+		};
+		AE1F57FCCE0C2C4E7D884CED9E6BE226 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CF22CB071D3465975A47DF95BAEFB51 /* Info.plist */,
+				777B780574BE2141C0C5A02EA2518BF7 /* SwiftSocket.modulemap */,
+				97127948B567B5DF799BECE808D6BFBF /* SwiftSocket.xcconfig */,
+				B9EF3006C7C4B084D70916C2736D38C1 /* SwiftSocket-dummy.m */,
+				31F93E7113EED69B088AB532C45E5FC0 /* SwiftSocket-prefix.pch */,
+				566633F20D21C285C3F09F065316813F /* SwiftSocket-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftSocket";
+			sourceTree = "<group>";
+		};
+		C92D6BD3742B0F854ACEDC8D2555242B /* Pods-TCPSerwver */ = {
+			isa = PBXGroup;
+			children = (
+				E88497BE91DCA19E9A7A3EF61AA1EA91 /* Info.plist */,
+				B3A891452454A2F164A85815CEE2357A /* Pods-TCPSerwver.modulemap */,
+				E6BA82B27E72EA5D2BDFA56703769949 /* Pods-TCPSerwver-acknowledgements.markdown */,
+				D8265ED0D55A9FD2824B3FD73989AA50 /* Pods-TCPSerwver-acknowledgements.plist */,
+				2220D570CEBFF23EFCF3FCD28401C13A /* Pods-TCPSerwver-dummy.m */,
+				4AC6C4E538CE8D141F18E8EBA7A66454 /* Pods-TCPSerwver-frameworks.sh */,
+				19777E6368FCF0CD860648652822F5BC /* Pods-TCPSerwver-resources.sh */,
+				0E71CFB9759DA79E205945DFC60F01E0 /* Pods-TCPSerwver-umbrella.h */,
+				3F275928714C21B52B1FFF1D0A58ED02 /* Pods-TCPSerwver.debug.xcconfig */,
+				8A0186F7AA323E2E7449F1A0F53A286A /* Pods-TCPSerwver.release.xcconfig */,
+			);
+			name = "Pods-TCPSerwver";
+			path = "Target Support Files/Pods-TCPSerwver";
+			sourceTree = "<group>";
+		};
+		E0D7FD369143F184F391929A3D0A9253 /* Pods-TCPSerwverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				288AAC672D9D7759D0A419449F7C1BEB /* Info.plist */,
+				0BA3EAF933622CAD63913CF6190FEEBF /* Pods-TCPSerwverUITests.modulemap */,
+				85EDD2E85FD19A995FB90A4A9C15E803 /* Pods-TCPSerwverUITests-acknowledgements.markdown */,
+				D8E373417BC01D1411E3D86CA56771BE /* Pods-TCPSerwverUITests-acknowledgements.plist */,
+				784715D41D70AFAE31CE72D7CD8D1B44 /* Pods-TCPSerwverUITests-dummy.m */,
+				82142883D515325526058C30D8F2C667 /* Pods-TCPSerwverUITests-frameworks.sh */,
+				FA0B4907BE53D0E07FBC0F17D3895781 /* Pods-TCPSerwverUITests-resources.sh */,
+				85C76A99F838889777F69FC1316E3EB7 /* Pods-TCPSerwverUITests-umbrella.h */,
+				95FDAFEE3241B41DC0706569CF4E911A /* Pods-TCPSerwverUITests.debug.xcconfig */,
+				36B28E18C6AB565F811F827A79C51795 /* Pods-TCPSerwverUITests.release.xcconfig */,
+			);
+			name = "Pods-TCPSerwverUITests";
+			path = "Target Support Files/Pods-TCPSerwverUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		098A2613FF84A4BAD8FA07160D48A4C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CB7EE3CC3161C7105D6A0EA2AD19871 /* Pods-TCPSerwverUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C8DCEBD5388B4DA3DC78FE559E96440 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				911A78E2A7CFF799150A966B8E69AFA1 /* Pods-TCPSerwverTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29EDF0E6AE0457BCAE257407A3F2A143 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				959C1D76B5F964090152A058C55FF940 /* Pods-TCPSerwver-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4E640E03AEA1A2B16A46AB0ACE931D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D53D220E94DC66F2449E5BAC0E7BB42B /* SwiftSocket-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		74871A4C27EF695C123EE86CD15C0945 /* Pods-TCPSerwverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FFEA0B82664B83FD6F83D7855454772 /* Build configuration list for PBXNativeTarget "Pods-TCPSerwverUITests" */;
+			buildPhases = (
+				04F8F6C01C7AD7A82CD4E70AF8F9183E /* Sources */,
+				76CB9F8F7AF0E84220D8CC97CEB19C0A /* Frameworks */,
+				098A2613FF84A4BAD8FA07160D48A4C6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-TCPSerwverUITests";
+			productName = "Pods-TCPSerwverUITests";
+			productReference = DB291A74FAF795D80C072232F0EE117F /* Pods_TCPSerwverUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A8E94E46E902092956EBFAD162228AB0 /* Pods-TCPSerwverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91E35578027BB095C252F09857765C4D /* Build configuration list for PBXNativeTarget "Pods-TCPSerwverTests" */;
+			buildPhases = (
+				73F3988ED542F1526407CDA8B00A3AB4 /* Sources */,
+				66FC8F54BCBACC23A5178E4271B7E5EA /* Frameworks */,
+				1C8DCEBD5388B4DA3DC78FE559E96440 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-TCPSerwverTests";
+			productName = "Pods-TCPSerwverTests";
+			productReference = 8E4F5A75808A8B78BA2166D5B2B83012 /* Pods_TCPSerwverTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D395990A85C01BEC604CC25B09D02539 /* Pods-TCPSerwver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38798E796EC0E7E82AF3554A417D3918 /* Build configuration list for PBXNativeTarget "Pods-TCPSerwver" */;
+			buildPhases = (
+				F202879F8CF9333F729200274E5987E4 /* Sources */,
+				D7DBA738AAF5B907BDB7029DC3F6AF3D /* Frameworks */,
+				29EDF0E6AE0457BCAE257407A3F2A143 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DE219451D64EC845AF27BB1E91A2BFC /* PBXTargetDependency */,
+			);
+			name = "Pods-TCPSerwver";
+			productName = "Pods-TCPSerwver";
+			productReference = E1F93D72E2C3C722F279A620BBC448D3 /* Pods_TCPSerwver.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EF031A8EA6638235459B2DAE51E31450 /* SwiftSocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69137276B92CCDE1ED6941B10B4A74E4 /* Build configuration list for PBXNativeTarget "SwiftSocket" */;
+			buildPhases = (
+				9C86D144E216856D78F8A64D4423A7FB /* Sources */,
+				7A73CCF92CB1144FA9A998921DA4C22E /* Frameworks */,
+				A4E640E03AEA1A2B16A46AB0ACE931D5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftSocket;
+			productName = SwiftSocket;
+			productReference = C738C8EF148D87DBC77DCCF572BC2999 /* SwiftSocket.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 611F2408D38DBD58FC6EAEDECB52B4CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D395990A85C01BEC604CC25B09D02539 /* Pods-TCPSerwver */,
+				A8E94E46E902092956EBFAD162228AB0 /* Pods-TCPSerwverTests */,
+				74871A4C27EF695C123EE86CD15C0945 /* Pods-TCPSerwverUITests */,
+				EF031A8EA6638235459B2DAE51E31450 /* SwiftSocket */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04F8F6C01C7AD7A82CD4E70AF8F9183E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CE0528881962248E37E8F1DC5957F0B /* Pods-TCPSerwverUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73F3988ED542F1526407CDA8B00A3AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8584BD39151F33965DB405F41020D9D3 /* Pods-TCPSerwverTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C86D144E216856D78F8A64D4423A7FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51C42BB4B164AD8B973932DE5032ED13 /* Result.swift in Sources */,
+				BD8EC0DF3B73592B0844D133E05D3619 /* Socket.swift in Sources */,
+				85E23C8650A0C43D17BE14AB34A37893 /* SwiftSocket-dummy.m in Sources */,
+				A2387DACE205A423E7F284F56E7DD762 /* TCPClient.swift in Sources */,
+				70E544D4F0B7F8F4FADA718075217FB9 /* UDPClient.swift in Sources */,
+				3936C9A4A743AA2E5822538A17BA7974 /* ytcpsocket.c in Sources */,
+				94D211CFBEB17A1892D256365AB666D1 /* yudpsocket.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F202879F8CF9333F729200274E5987E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				141145EC4AD9285A1BCFEC97F29A841C /* Pods-TCPSerwver-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DE219451D64EC845AF27BB1E91A2BFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftSocket;
+			target = EF031A8EA6638235459B2DAE51E31450 /* SwiftSocket */;
+			targetProxy = B48ED6C8A8878275CFEF5FA7ED76C5CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09AD62BBC622CA85B5F7AFDCC463F9D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36B28E18C6AB565F811F827A79C51795 /* Pods-TCPSerwverUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TCPSerwverUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-TCPSerwverUITests/Pods-TCPSerwverUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TCPSerwverUITests;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		175417CC05B110BA182A7D257D60BC5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95FDAFEE3241B41DC0706569CF4E911A /* Pods-TCPSerwverUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TCPSerwverUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-TCPSerwverUITests/Pods-TCPSerwverUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TCPSerwverUITests;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2E37936077D57C31DCB9542437526A4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97127948B567B5DF799BECE808D6BFBF /* SwiftSocket.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftSocket/SwiftSocket-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftSocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/SwiftSocket/SwiftSocket.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftSocket;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		774D345C1316346D6149B25F10444935 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		87F280F559ADBA06B2470359B0D0B63D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A0186F7AA323E2E7449F1A0F53A286A /* Pods-TCPSerwver.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TCPSerwver/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-TCPSerwver/Pods-TCPSerwver.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TCPSerwver;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8E9193A27B412B684506EA97E69601E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97127948B567B5DF799BECE808D6BFBF /* SwiftSocket.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftSocket/SwiftSocket-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftSocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/SwiftSocket/SwiftSocket.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftSocket;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		920CFAE8D4CEC80D2CE17A54B8608355 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4982BDD9A41F8EB3E759CD0AB3992075 /* Pods-TCPSerwverTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TCPSerwverTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-TCPSerwverTests/Pods-TCPSerwverTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TCPSerwverTests;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		945EB9E2C47E9C30E16985278CFFC5AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDED32AF075D461035CDB44C208A7EB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8363A39B71C0C0A689B9F8F8AAAD7B43 /* Pods-TCPSerwverTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TCPSerwverTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-TCPSerwverTests/Pods-TCPSerwverTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TCPSerwverTests;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FF77C32DD0BDD4BE362D6AFC7DDE777B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F275928714C21B52B1FFF1D0A58ED02 /* Pods-TCPSerwver.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TCPSerwver/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MODULEMAP_FILE = "Target Support Files/Pods-TCPSerwver/Pods-TCPSerwver.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TCPSerwver;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FFEA0B82664B83FD6F83D7855454772 /* Build configuration list for PBXNativeTarget "Pods-TCPSerwverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				175417CC05B110BA182A7D257D60BC5E /* Debug */,
+				09AD62BBC622CA85B5F7AFDCC463F9D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				774D345C1316346D6149B25F10444935 /* Debug */,
+				945EB9E2C47E9C30E16985278CFFC5AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38798E796EC0E7E82AF3554A417D3918 /* Build configuration list for PBXNativeTarget "Pods-TCPSerwver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF77C32DD0BDD4BE362D6AFC7DDE777B /* Debug */,
+				87F280F559ADBA06B2470359B0D0B63D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69137276B92CCDE1ED6941B10B4A74E4 /* Build configuration list for PBXNativeTarget "SwiftSocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E9193A27B412B684506EA97E69601E3 /* Debug */,
+				2E37936077D57C31DCB9542437526A4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91E35578027BB095C252F09857765C4D /* Build configuration list for PBXNativeTarget "Pods-TCPSerwverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDED32AF075D461035CDB44C208A7EB0 /* Debug */,
+				920CFAE8D4CEC80D2CE17A54B8608355 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

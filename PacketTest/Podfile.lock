@@ -1,12 +1,15 @@
 PODS:
   - CocoaAsyncSocket (7.6.1)
+  - SwiftSocket (2.0.2)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
+  - SwiftSocket
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
+  SwiftSocket: 6f4c9c63fbc5c1d61188936bb3c599fd546f40ae
 
-PODFILE CHECKSUM: faee526914ff3650688554023050a0f541b2aeaf
+PODFILE CHECKSUM: c00e5e3bc9f1d43e58320163f80fdc7984cbd8db
 
 COCOAPODS: 1.3.1
