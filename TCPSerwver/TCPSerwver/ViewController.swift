@@ -13,7 +13,10 @@ class ViewController: NSViewController {
     var server: TCPServer!
     func echoService(client: TCPClient) {
         print("Newclient from:\(client.address)[\(client.port)]")
-        var d = client.read(1024*10)
+        var d = client.read(1024*5*5*5*5)
+        var data = Data(bytes: d!, count: (d?.count)!);
+        var str=String(data:data,encoding: .utf8)
+        print("str is \(str)")
         client.send(data: d!)
         client.close()
     }
