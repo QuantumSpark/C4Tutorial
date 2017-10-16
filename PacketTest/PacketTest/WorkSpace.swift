@@ -20,7 +20,8 @@ class WorkSpace: CanvasController,GCDAsyncUdpSocketDelegate {
         var result =  client.send(data: tempData)
         var FPS = Int(fps.text!)
         for var j in Int(0)..<FPS!{
-           print(j)
+            result=client.send(data:tempData)
+            print(result)
         }
 
     }
