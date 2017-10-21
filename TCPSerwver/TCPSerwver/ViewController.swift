@@ -11,15 +11,46 @@ import SwiftSocket
 
 class ViewController: NSViewController {
     var server: TCPServer!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        testServer()
+        // Do any additional setup after loading the view.
+    }
+
+    override var representedObject: Any? {
+        didSet {
+        // Update the view, if already loaded.
+        }
+    }
+    
     func echoService(client: TCPClient) {
         print("Newclient from:\(client.address)[\(client.port)]")
-        var d = client.read(1024*5*5*5*5)
-        var data = Data(bytes: d!, count: (d?.count)!);
-        var str=String(data:data,encoding: .utf8)
-        print("str is \(str)")
+        var d = client.read(640000)
+        let chunkShit = chunkMessage(d!)
         client.send(data: d!)
-        client.close()
+        //client.close()
     }
+
+    func chunkMessage(_ wholeData: [Byte]) -> [NSData] {
+        var chunks : [NSData] = [] //return value
+        var i=0;
+        var startIndex=0;
+        while(i<wholeData.count - 4){
+            if(wholeData[i] == 0xFF && wholeData[i+1] == 0xFF && wholeData[i+2] == 0xFF && wholeData[i+3] == 0xFF){
+                let tempSubArray = wholeData[startIndex...i]
+                startIndex=i+4;
+                let tempSubData=(Data(bytes: tempSubArray)) as NSData
+                chunks.append(tempSubData)
+                i=i+4
+            } else {
+                i = i + 1
+            }
+
+        }
+        return chunks
+    }
+    
     
     func testServer() {
         server = TCPServer(address: "0.0.0.0", port: 3000)
@@ -38,18 +69,7 @@ class ViewController: NSViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        testServer()
-        // Do any additional setup after loading the view.
-    }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
 
 
 }
