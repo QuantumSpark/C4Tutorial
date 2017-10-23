@@ -13,7 +13,9 @@ import SwiftSocket
 class WorkSpace: CanvasController,GCDAsyncUdpSocketDelegate {
     @IBOutlet weak var dataSize: UITextField!
     @IBOutlet weak var fps: UITextField!
+    
     let client=TCPClient(address:"10.0.0.143",port:3000)
+    
     @IBAction func sendData(_ sender: Any) {
         var tempData = Data(repeating: 2, count: 2000)
         
@@ -28,8 +30,8 @@ class WorkSpace: CanvasController,GCDAsyncUdpSocketDelegate {
 
     override func setup() {
         //Work your magic here.
-        let socketManager = SocketManager.sharedManager
-        socketManager.workspace = self
+        //let socketManager = SocketManager.sharedManager
+        //socketManager.workspace = self
         let str="hello"
         let data = str.data(using: .utf8)
        
