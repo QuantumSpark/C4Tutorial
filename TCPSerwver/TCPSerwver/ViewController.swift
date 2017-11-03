@@ -20,14 +20,24 @@ class ViewController: NSViewController {
         let display = AVSampleBufferDisplayLayer()
         return display
     }()
+    
+    var readingWorkingItem: DispatchWorkItem? = nil
+    var readingQueue = DispatchQueue(label: "Socket connections for reading")
 
     @IBAction func playTheVideo(_ sender: Any) {
         guard !listOfCMSampleBuffer.isEmpty else {
             return
         }
-        
+        var waitingForFrame = true
         for sbuf in listOfCMSampleBuffer {
-            self.displaySampleLayer.enqueue(sbuf)
+            while waitingForFrame {
+                if self.displaySampleLayer.isReadyForMoreMediaData {
+                self.displaySampleLayer.enqueue(sbuf)
+                    waitingForFrame = false
+                }
+            }
+            waitingForFrame = true
+            usleep(100000)
         }
     }
     override func viewDidLoad() {
@@ -35,9 +45,7 @@ class ViewController: NSViewController {
         setupDisplaySampleLayer()
         testServer()
         
-        for sbuf in listOfCMSampleBuffer {
-            self.displaySampleLayer.enqueue(sbuf)
-        }
+       
         
 
         // Do any additional setup after loading the view.
@@ -46,29 +54,21 @@ class ViewController: NSViewController {
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
-            for sbuf in listOfCMSampleBuffer {
-                self.displaySampleLayer.enqueue(sbuf)
-            }
         }
     }
     
     func echoService(client: TCPClient) {
         print("Newclient from:\(client.address)[\(client.port)]")
-        var d = client.read(200000)
+        var d = client.read(500000)
         let chunkShit = chunkMessage(d!)
         generateCMSampleBuffer(chunkShit)
-        client.send(data: d!)
-        client.close()
+
     }
     
     func generateCMSampleBuffer(_ chunks: [Data]) {
         for (index, elementaryStream) in chunks.enumerated() {
             
             let (formatDescription, offset) = constructCMVideoDescription(from:  NSMutableData(data: elementaryStream ))
-            guard formatDescription != nil else {
-                print(index)
-                continue
-            }
             let (cmblockbuffer, secondOffset) = constructCMBlockBuffer(from: NSMutableData(data: elementaryStream ), with: offset)
             let timeSecond=constructSeconds(from:  NSMutableData(data: elementaryStream ), with: secondOffset)
             let pTS = CMTime(seconds: timeSecond, preferredTimescale: CMTimeScale(self.timescale))
@@ -87,6 +87,8 @@ class ViewController: NSViewController {
                 let dictRef = unsafeBitCast(dict, to: CFMutableDictionary.self)
                 
                 CFDictionarySetValue(dictRef, unsafeBitCast(kCMSampleAttachmentKey_DisplayImmediately, to: UnsafeRawPointer.self), unsafeBitCast(kCFBooleanTrue, to :UnsafeRawPointer.self ))
+                
+//                    self.displaySampleLayer.enqueue(reconstructedSampleBuffer!)
                 
                 listOfCMSampleBuffer.append(reconstructedSampleBuffer!)
             }
@@ -120,6 +122,7 @@ class ViewController: NSViewController {
             print("Connection success")
             if var client = server.accept() {
                 echoService(client: client)
+//                pollForResponse(for: client)
             } else {
                 print("accept error")
             }
@@ -129,7 +132,28 @@ class ViewController: NSViewController {
         }
     }
     
-    private func constructCMVideoDescription(from data: NSMutableData) -> (CMFormatDescription?, Int) {
+    
+    // read clients in another thread
+    func pollForResponse(for cilent: TCPClient) {
+        readingWorkingItem = DispatchWorkItem {
+            guard let item = self.readingWorkingItem else {
+                return
+            }
+            
+            while !item.isCancelled {
+                let d = cilent.read(200000)
+                let chunkShit = self.chunkMessage(d!)
+                self.generateCMSampleBuffer(chunkShit)
+                break
+            }
+            
+            
+        }
+        
+        readingQueue.async(execute: readingWorkingItem!)
+    }
+    
+    private func constructCMVideoDescription(from data: NSMutableData) -> (CMFormatDescription, Int) {
         var formatDesc:CMFormatDescription?
         
         let naluData = UnsafeMutablePointer<UInt8>(mutating: data.bytes.assumingMemoryBound(to: UInt8.self))
@@ -179,7 +203,7 @@ class ViewController: NSViewController {
             print("Failed to create CMVideoFormatDescription")
         }
         
-        return (formatDesc , Int(ppsSize + spsSize))
+        return (formatDesc! , Int(ppsSize + spsSize))
     }
     private func constructCMBlockBuffer (from elementaryStream: NSMutableData, with offset: Int) -> (CMBlockBuffer, Int) {
         var cmblockBuffer: CMBlockBuffer?
@@ -218,8 +242,17 @@ class ViewController: NSViewController {
         return -1
     }
     func setupDisplaySampleLayer() {
-        self.view.layer?.addSublayer(displaySampleLayer)
-        self.displaySampleLayer.bounds = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 500, height: 500)
+        
+        self.displaySampleLayer.bounds = CGRect(x: self.view.frame.size.width*0.5, y: self.view.frame.size.height*0.5, width: 500, height: 500)
+        self.view.layer = displaySampleLayer
+        
+//        var controlTimebase:CMTimebase?
+//        CMTimebaseCreateWithMasterClock(kCFAllocatorDefault, CMClockGetHostTimeClock(), &controlTimebase)
+//
+//        displaySampleLayer.controlTimebase = controlTimebase
+//        
+//        CMTimebaseSetRate(self.displaySampleLayer.controlTimebase!, 1.0)
+//        CMTimebaseSetTime(self.displaySampleLayer.controlTimebase!, CMTimeMake(3647973193541, Int32(timescale)))
     }
     
     private func constructSeconds(from data: NSMutableData, with secondOffset : Int) -> Double {
