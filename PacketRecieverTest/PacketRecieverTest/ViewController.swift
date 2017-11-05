@@ -11,11 +11,12 @@ import CocoaAsyncSocket
 import AVFoundation
 
 class ViewController: NSViewController, GCDAsyncSocketDelegate {
-
-    @IBOutlet weak var fuckenImage: NSImageView!
+    var displaySampleLayer = AVSampleBufferDisplayLayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.displaySampleLayer.bounds = CGRect(x: self.view.frame.size.width*0.5, y: self.view.frame.size.height*0.5, width: 500, height: 500)
+        self.view.layer = displaySampleLayer
         let socketManager = TCPSocketManager.sharedManager
         socketManager.workspace = self
         // Do any additional setup after loading the view.
