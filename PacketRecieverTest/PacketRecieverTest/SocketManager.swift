@@ -18,6 +18,7 @@ open class SocketManager: NSObject, GCDAsyncUdpSocketDelegate {
     //10.0.0.2 (router network)
     static let sharedManager = SocketManager()
 
+    var workspace: ViewController?
 
     let maxDeviceID = 28
 
@@ -61,7 +62,6 @@ open class SocketManager: NSObject, GCDAsyncUdpSocketDelegate {
     }
 
     open func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
-        print("This is called")
         var packet: Packet!
         do {
             packet = try Packet((data as NSData) as Data)
@@ -69,7 +69,8 @@ open class SocketManager: NSObject, GCDAsyncUdpSocketDelegate {
             return
         }
         if let data = packet.payload {
-            print(data)
+            print(data.count)
+            
         }
     }
 

@@ -8,15 +8,16 @@
 
 import Cocoa
 import CocoaAsyncSocket
-
+import AVFoundation
 
 class ViewController: NSViewController, GCDAsyncSocketDelegate {
 
+    @IBOutlet weak var fuckenImage: NSImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let socketManager = SocketManager.sharedManager
-        
+        let socketManager = TCPSocketManager.sharedManager
+        socketManager.workspace = self
         // Do any additional setup after loading the view.
     }
 
@@ -25,8 +26,5 @@ class ViewController: NSViewController, GCDAsyncSocketDelegate {
         // Update the view, if already loaded.
         }
     }
-
-
-
 }
 
