@@ -19,6 +19,9 @@
 		D0C5A59C1F63502000A77BB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C5A59A1F63502000A77BB4 /* Main.storyboard */; };
 		D0C5A5A71F63502000A77BB4 /* PacketRecieverTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C5A5A61F63502000A77BB4 /* PacketRecieverTestTests.swift */; };
 		D0C5A5B21F63502000A77BB4 /* PacketRecieverTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C5A5B11F63502000A77BB4 /* PacketRecieverTestUITests.swift */; };
+		D0F5B2901F72351D00BCA5BF /* TCPSocketManagerMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B28F1F72351D00BCA5BF /* TCPSocketManagerMaster.swift */; };
+		D0F5B2921F7235EF00BCA5BF /* TCPPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B2911F7235EF00BCA5BF /* TCPPeripheral.swift */; };
+		D0F5B2981F72FA0800BCA5BF /* TCPSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B2971F72FA0800BCA5BF /* TCPSocketManager.swift */; };
 		E60E44F2C726B667C19A9457 /* Pods_PacketRecieverTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF203E1E95E1423AC9448CFB /* Pods_PacketRecieverTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		D0C5A5AD1F63502000A77BB4 /* PacketRecieverTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PacketRecieverTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C5A5B11F63502000A77BB4 /* PacketRecieverTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketRecieverTestUITests.swift; sourceTree = "<group>"; };
 		D0C5A5B31F63502000A77BB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0F5B28F1F72351D00BCA5BF /* TCPSocketManagerMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TCPSocketManagerMaster.swift; path = ../TCPSocketManagerMaster.swift; sourceTree = "<group>"; };
+		D0F5B2911F7235EF00BCA5BF /* TCPPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPPeripheral.swift; sourceTree = "<group>"; };
+		D0F5B2971F72FA0800BCA5BF /* TCPSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPSocketManager.swift; sourceTree = "<group>"; };
 		D3507CED71DAE6DC1C1E67E6 /* Pods-PacketRecieverTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PacketRecieverTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-PacketRecieverTest/Pods-PacketRecieverTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,13 +112,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D0ACEC391F635C0E0088006E /* Master */ = {
+		D0ACEC391F635C0E0088006E /* UDPMaster */ = {
 			isa = PBXGroup;
 			children = (
 				D0ACEC3A1F635C310088006E /* SocketManagerMaster.swift */,
 				D0ACEC3C1F635C690088006E /* Peripheral.swift */,
 			);
-			name = Master;
+			name = UDPMaster;
 			sourceTree = "<group>";
 		};
 		D0C5A5861F63502000A77BB4 = {
@@ -140,7 +146,7 @@
 		D0C5A5911F63502000A77BB4 /* PacketRecieverTest */ = {
 			isa = PBXGroup;
 			children = (
-				D0ACEC391F635C0E0088006E /* Master */,
+				D0ACEC391F635C0E0088006E /* UDPMaster */,
 				D0C5A5921F63502000A77BB4 /* AppDelegate.swift */,
 				D0C5A5941F63502000A77BB4 /* ViewController.swift */,
 				D0C5A5961F63502000A77BB4 /* Document.swift */,
@@ -148,8 +154,10 @@
 				D0C5A59A1F63502000A77BB4 /* Main.storyboard */,
 				D0C5A59D1F63502000A77BB4 /* Info.plist */,
 				D0ACEC321F6354530088006E /* Packet.swift */,
+				D0F5B2941F7272DC00BCA5BF /* TCPMaster */,
 				D0ACEC2E1F6353B90088006E /* SocketManager.swift */,
 				D0ACEC341F6354DD0088006E /* DataExtension.swift */,
+				D0F5B2971F72FA0800BCA5BF /* TCPSocketManager.swift */,
 			);
 			path = PacketRecieverTest;
 			sourceTree = "<group>";
@@ -170,6 +178,15 @@
 				D0C5A5B31F63502000A77BB4 /* Info.plist */,
 			);
 			path = PacketRecieverTestUITests;
+			sourceTree = "<group>";
+		};
+		D0F5B2941F7272DC00BCA5BF /* TCPMaster */ = {
+			isa = PBXGroup;
+			children = (
+				D0F5B28F1F72351D00BCA5BF /* TCPSocketManagerMaster.swift */,
+				D0F5B2911F7235EF00BCA5BF /* TCPPeripheral.swift */,
+			);
+			name = TCPMaster;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,12 +378,15 @@
 			files = (
 				D0ACEC3B1F635C310088006E /* SocketManagerMaster.swift in Sources */,
 				D0C5A5951F63502000A77BB4 /* ViewController.swift in Sources */,
+				D0F5B2901F72351D00BCA5BF /* TCPSocketManagerMaster.swift in Sources */,
+				D0F5B2981F72FA0800BCA5BF /* TCPSocketManager.swift in Sources */,
 				D0C5A5931F63502000A77BB4 /* AppDelegate.swift in Sources */,
 				D0ACEC331F6354530088006E /* Packet.swift in Sources */,
 				D0ACEC351F6354DD0088006E /* DataExtension.swift in Sources */,
 				D0ACEC2F1F6353B90088006E /* SocketManager.swift in Sources */,
 				D0C5A5971F63502000A77BB4 /* Document.swift in Sources */,
 				D0ACEC3D1F635C690088006E /* Peripheral.swift in Sources */,
+				D0F5B2921F7235EF00BCA5BF /* TCPPeripheral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
