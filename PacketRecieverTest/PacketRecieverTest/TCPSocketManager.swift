@@ -16,15 +16,11 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
     static let peripheralPort = UInt16(80)
     static let masterHost = "0.0.0.0"
     static let broadcastHost = "10.0.255.255"
-    var i = 1
 
     private let nStartCodeLength:size_t = 4
     private let nStartCode:[UInt8] = [0x00, 0x00, 0x00, 0x01]
     private var timescale = 1000000000
     var connectedSockets = [GCDAsyncSocket]()
-    
-    var tempFrame = [UInt8(0)]
-    var tempFrame2 = [UInt8(0)]
 
     var listOfTempFrame = [ [UInt8(0)], [UInt8(0)]]
     var numbOfIPads = -1
@@ -70,81 +66,46 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
         print("Accept to new socket")
 
         self.connectedSockets.append(newSocket)
-
-        newSocket.readData(withTimeout: -1, tag: i)
+        listOfTempFrame.append([UInt8(0)])
+        numbOfIPads+=1
+        print("There are \(numbOfIPads) ipads connected")
+        newSocket.readData(withTimeout: -1, tag: numbOfIPads)
 
 
         let welcomMessage = "Hello from the server";
-        newSocket.write(welcomMessage.data(using: .utf8)!, withTimeout: -1, tag: i)
-//        self.socket.readData(withTimeout: -1, tag: 0)
-        i+=1
-
+        newSocket.write(welcomMessage.data(using: .utf8)!, withTimeout: -1, tag: numbOfIPads)
     }
 
 
     public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         sock.readData(withTimeout: -1, tag: tag)
         print(tag)
-//        print("Length of the incoming data \(data)")
-
-        if (tag == 1) {
-            updateDisplay(data)
-
-        }else if (tag == 2) {
-            updateDisplay2(data)
-        }
+        updateDisplay(data, withTag: tag)
     }
 
-
-    public func updateDisplay2(_ data: Data) {
+    public func updateDisplay(_ data: Data, withTag tag: Int) {
         let wholeData = Array(data)
         var i = 0
-
         while (i<=wholeData.count-1){
-            if (tempFrame2.count>=4) {
-                let tempFrameSize = tempFrame2.count
-                if (tempFrame2[tempFrameSize-1] == 0xFF && tempFrame2[tempFrameSize-2] == 0xFF && tempFrame2[tempFrameSize-3] == 0xFF && tempFrame2[tempFrameSize-4] == 0xFF){
-                    //                    print(tempFrame)
+            if ( listOfTempFrame[tag].count>=4) {
+                let tempFrameSize =  listOfTempFrame[tag].count
+                if ( listOfTempFrame[tag][tempFrameSize-1] == 0xFF &&  listOfTempFrame[tag][tempFrameSize-2] == 0xFF &&  listOfTempFrame[tag][tempFrameSize-3] == 0xFF &&  listOfTempFrame[tag][tempFrameSize-4] == 0xFF){
                     print("===============================================================")
-                    let frameData = (Data(bytes: tempFrame2))
-                    generateCMSampleBuffer2(frameData)
-                    tempFrame2=[UInt8(0)]
+                    let frameData = (Data(bytes:  listOfTempFrame[tag]))
+                    generateCMSampleBuffer(frameData, tag)
+                    listOfTempFrame[tag] = [UInt8(0)]
+
                 }else{
-                    tempFrame2.append(wholeData[i])
+                     listOfTempFrame[tag].append(wholeData[i])
                 }
             } else{
-                tempFrame2.append(wholeData[i])
+                 listOfTempFrame[tag].append(wholeData[i])
             }
             i = i + 1
         }
     }
 
-
-
-    public func updateDisplay(_ data: Data) {
-        let wholeData = Array(data)
-        var i = 0
-
-        while (i<=wholeData.count-1){
-            if (tempFrame.count>=4) {
-                let tempFrameSize = tempFrame.count
-                if (tempFrame[tempFrameSize-1] == 0xFF && tempFrame[tempFrameSize-2] == 0xFF && tempFrame[tempFrameSize-3] == 0xFF && tempFrame[tempFrameSize-4] == 0xFF){
-//                    print(tempFrame)
-                    print("===============================================================")
-                    let frameData = (Data(bytes: tempFrame))
-                    generateCMSampleBuffer(frameData)
-                    tempFrame=[UInt8(0)]
-                }else{
-                    tempFrame.append(wholeData[i])
-                }
-            } else{
-                tempFrame.append(wholeData[i])
-            }
-            i = i + 1
-        }
-    }
-
-    private func generateCMSampleBuffer(_ elementaryStream:Data) {
+    private func generateCMSampleBuffer(_ elementaryStream:Data, _ tag:Int) {
 
         let (formatDescription, offset) = constructCMVideoDescription(from:  NSMutableData(data: elementaryStream ))
         guard formatDescription != nil else {
@@ -153,15 +114,6 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
         let (cmblockbuffer, secondOffset) = constructCMBlockBuffer(from: NSMutableData(data: elementaryStream ), with: offset)
         let (timeSecond, thirdOffset) = constructSeconds(from:  NSMutableData(data: elementaryStream ), with: secondOffset)
         let deviceID = constructID(from: NSMutableData(data: elementaryStream ), with: thirdOffset)
-        if (deviceID == 1) {
-            print("It is from MO5 ")
-        } else if (deviceID == 2) {
-            print("It is from James's Ipad")
-        } else {
-            print(deviceID)
-            print("Random Device shit")
-        }
-
         let pTS = CMTime(seconds: timeSecond, preferredTimescale: CMTimeScale(self.timescale))
         var sampleSize = CMBlockBufferGetDataLength(cmblockbuffer)
         var timing = CMSampleTimingInfo(duration: CMTime(), presentationTimeStamp: pTS, decodeTimeStamp: CMTime())
@@ -180,56 +132,12 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
 
             CFDictionarySetValue(dictRef, unsafeBitCast(kCMSampleAttachmentKey_DisplayImmediately, to: UnsafeRawPointer.self), unsafeBitCast(kCFBooleanTrue, to :UnsafeRawPointer.self ))
             print("DisplayLayer can display? \(workspace?.displaySampleLayer.isReadyForMoreMediaData)")
-            workspace?.displaySampleLayer.enqueue(reconstructedSampleBuffer!)
+            workspace?.listOfDisplaySampleLayer[tag].enqueue(reconstructedSampleBuffer!)
         } else {
             print("Error: ")
         }
 
     }
-
-    private func generateCMSampleBuffer2(_ elementaryStream:Data) {
-
-        let (formatDescription, offset) = constructCMVideoDescription(from:  NSMutableData(data: elementaryStream ))
-        guard formatDescription != nil else {
-            return
-        }
-        let (cmblockbuffer, secondOffset) = constructCMBlockBuffer(from: NSMutableData(data: elementaryStream ), with: offset)
-        let (timeSecond, thirdOffset) = constructSeconds(from:  NSMutableData(data: elementaryStream ), with: secondOffset)
-        let deviceID = constructID(from: NSMutableData(data: elementaryStream ), with: thirdOffset)
-        if (deviceID == 1) {
-            print("It is from MO5 ")
-        } else if (deviceID == 2) {
-            print("It is from James's Ipad")
-        } else {
-            print(deviceID)
-            print("Random Device shit")
-        }
-
-        let pTS = CMTime(seconds: timeSecond, preferredTimescale: CMTimeScale(self.timescale))
-        var sampleSize = CMBlockBufferGetDataLength(cmblockbuffer)
-        var timing = CMSampleTimingInfo(duration: CMTime(), presentationTimeStamp: pTS, decodeTimeStamp: CMTime())
-
-        var reconstructedSampleBuffer: CMSampleBuffer?
-
-        let statusBuffer = CMSampleBufferCreate(kCFAllocatorDefault, cmblockbuffer, true, nil, nil, formatDescription, 1, 1, &timing, 1, &sampleSize, &reconstructedSampleBuffer)
-
-        if statusBuffer == noErr {
-            print("Succeeded in making a CMSampleBuffer")
-            self.numOfFrames=self.numOfFrames+1
-            print("We have \(self.numOfFrames) frames")
-            let attachments = CMSampleBufferGetSampleAttachmentsArray(reconstructedSampleBuffer!, true)
-            let dict = CFArrayGetValueAtIndex(attachments, 0)
-            let dictRef = unsafeBitCast(dict, to: CFMutableDictionary.self)
-
-            CFDictionarySetValue(dictRef, unsafeBitCast(kCMSampleAttachmentKey_DisplayImmediately, to: UnsafeRawPointer.self), unsafeBitCast(kCFBooleanTrue, to :UnsafeRawPointer.self ))
-            print("DisplayLayer can display? \(workspace?.displaySampleLayer.isReadyForMoreMediaData)")
-            workspace?.displaySampleLayer2.enqueue(reconstructedSampleBuffer!)
-        } else {
-            print("Error: ")
-        }
-
-    }
-
 
 
     private func constructSeconds(from data: NSMutableData, with secondOffset : Int) -> (Double, Int) {
