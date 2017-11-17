@@ -131,15 +131,13 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
             let dictRef = unsafeBitCast(dict, to: CFMutableDictionary.self)
 
             CFDictionarySetValue(dictRef, unsafeBitCast(kCMSampleAttachmentKey_DisplayImmediately, to: UnsafeRawPointer.self), unsafeBitCast(kCFBooleanTrue, to :UnsafeRawPointer.self ))
-            print("DisplayLayer can display? \(workspace?.displaySampleLayer.isReadyForMoreMediaData)")
+            print("DisplayLayer can display? \(workspace?.listOfDisplaySampleLayer[0].isReadyForMoreMediaData)")
             workspace?.listOfDisplaySampleLayer[tag].enqueue(reconstructedSampleBuffer!)
         } else {
             print("Error: ")
         }
 
     }
-
-
     private func constructSeconds(from data: NSMutableData, with secondOffset : Int) -> (Double, Int) {
         let tmpptr = data.bytes.assumingMemoryBound(to: UInt8.self)
         let ptr = UnsafeMutablePointer<UInt8>(mutating: tmpptr)
