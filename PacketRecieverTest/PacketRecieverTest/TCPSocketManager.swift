@@ -38,6 +38,9 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
 
     var workspace: ViewController?
 
+
+    var corruptedFrames = 0
+
     open lazy var deviceID = 0
 
     public override init() {
@@ -106,19 +109,25 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
     }
 
     private func generateCMSampleBuffer(_ elementaryStream:Data, _ tag:Int) {
-
+        print("So far we have this many corrupted frames: \(corruptedFrames)")
         let (formatDescription, offset) = constructCMVideoDescription(from:  NSMutableData(data: elementaryStream ))
-        guard formatDescription != nil else {
+        guard formatDescription != nil, offset != nil else {
+            corruptedFrames += 1
+            print("OHH NOOO D: D: Corrupted Frames: so far we have this many corrupted frames: \(corruptedFrames)")
             return
         }
-        let (optionalCmblockbuffer, optionalSecondOffset) = constructCMBlockBuffer(from: NSMutableData(data: elementaryStream ), with: offset)
+        let (optionalCmblockbuffer, optionalSecondOffset) = constructCMBlockBuffer(from: NSMutableData(data: elementaryStream ), with: offset!)
 
         guard let cmblockbuffer = optionalCmblockbuffer, let secondOffset = optionalSecondOffset else {
+            corruptedFrames += 1
+            print("OHH NOOO D: D: Corrupted Frames: so far we have this many corrupted frames: \(corruptedFrames)")
             return
         }
         let (optionalTimeSecond, optionalthirdOffset) = constructSeconds(from:  NSMutableData(data: elementaryStream ), with: secondOffset)
 
         guard let timeSecond = optionalTimeSecond, let thirdOffset = optionalthirdOffset else {
+            corruptedFrames += 1
+            print("OHH NOOO D: D: Corrupted Frames: so far we have this many corrupted frames: \(corruptedFrames)")
             return
         }
 
@@ -183,13 +192,19 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
 
 
 
-    private func constructCMVideoDescription(from data: NSMutableData) -> (CMFormatDescription?, Int) {
+    private func constructCMVideoDescription(from data: NSMutableData) -> (CMFormatDescription?, Int?) {
         var formatDesc:CMFormatDescription?
 
         let naluData = UnsafeMutablePointer<UInt8>(mutating: data.bytes.assumingMemoryBound(to: UInt8.self))
         let ptr = UnsafeMutablePointer<UInt8>(mutating: naluData)
 
         let secondStartCodeIndex = findStartCode(using: ptr, offset: 0, count: data.length)
+        if (secondStartCodeIndex == -1) {
+            return (nil, nil)
+        }
+        if secondStartCodeIndex > 256 {
+             return (nil, nil)
+        }
         let spsSize = UInt8(secondStartCodeIndex)
 
         let thirdStartCodeIndex = findStartCode(using: ptr, offset: Int(spsSize),count: data.length)
