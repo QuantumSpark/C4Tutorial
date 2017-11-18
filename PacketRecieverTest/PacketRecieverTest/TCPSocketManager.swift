@@ -111,8 +111,17 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
         guard formatDescription != nil else {
             return
         }
-        let (cmblockbuffer, secondOffset) = constructCMBlockBuffer(from: NSMutableData(data: elementaryStream ), with: offset)
-        let (timeSecond, thirdOffset) = constructSeconds(from:  NSMutableData(data: elementaryStream ), with: secondOffset)
+        let (optionalCmblockbuffer, optionalSecondOffset) = constructCMBlockBuffer(from: NSMutableData(data: elementaryStream ), with: offset)
+
+        guard let cmblockbuffer = optionalCmblockbuffer, let secondOffset = optionalSecondOffset else {
+            return
+        }
+        let (optionalTimeSecond, optionalthirdOffset) = constructSeconds(from:  NSMutableData(data: elementaryStream ), with: secondOffset)
+
+        guard let timeSecond = optionalTimeSecond, let thirdOffset = optionalthirdOffset else {
+            return
+        }
+
         let deviceID = constructID(from: NSMutableData(data: elementaryStream ), with: thirdOffset)
         let pTS = CMTime(seconds: timeSecond, preferredTimescale: CMTimeScale(self.timescale))
         var sampleSize = CMBlockBufferGetDataLength(cmblockbuffer)
@@ -138,15 +147,17 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
         }
 
     }
-    private func constructSeconds(from data: NSMutableData, with secondOffset : Int) -> (Double, Int) {
+    private func constructSeconds(from data: NSMutableData, with secondOffset : Int) -> (Double?, Int?) {
         let tmpptr = data.bytes.assumingMemoryBound(to: UInt8.self)
         let ptr = UnsafeMutablePointer<UInt8>(mutating: tmpptr)
         let idOffset = findStartCode(using: ptr, offset: secondOffset, count: data.length)
+        if (idOffset == -1) {
+            return (nil, nil)
+        }
         let dataSize = idOffset - secondOffset - nStartCodeLength - nStartCodeLength
         let secondDataPointer = UnsafeMutablePointer<UInt8>.allocate(capacity: dataSize)
 
         memcpy(secondDataPointer, &ptr[Int(secondOffset+4)], dataSize)
-
 
         let secondData = NSData(bytes: secondDataPointer, length: dataSize)
 
@@ -224,14 +235,18 @@ open class TCPSocketManager: NSObject, GCDAsyncSocketDelegate {
 
         return (formatDesc , Int(ppsSize + spsSize))
     }
-    private func constructCMBlockBuffer (from elementaryStream: NSMutableData, with offset: Int) -> (CMBlockBuffer, Int) {
+    private func constructCMBlockBuffer (from elementaryStream: NSMutableData, with offset: Int) -> (CMBlockBuffer?, Int?) {
         var cmblockBuffer: CMBlockBuffer?
         let tmpptr = elementaryStream.bytes.assumingMemoryBound(to: UInt8.self)
         let ptr = UnsafeMutablePointer<UInt8>(mutating: tmpptr)
 
         let timeCodeIndex = findStartCode(using: ptr, offset: offset, count: elementaryStream.length)
-        let dataSize = timeCodeIndex - offset - nStartCodeLength
 
+        if ( timeCodeIndex == -1 ) {
+            return (nil, nil)
+        }
+
+        let dataSize = timeCodeIndex - offset - nStartCodeLength
 
         let frameData = UnsafeMutablePointer<UInt8>.allocate(capacity: dataSize)
 
