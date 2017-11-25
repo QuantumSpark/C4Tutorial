@@ -19,8 +19,8 @@ class ViewController: NSViewController, GCDAsyncSocketDelegate {
         let socketManager = TCPSocketManager.sharedManager
         socketManager.workspace = self
         // Do any additional setup after loading the view.
-        let height = CGFloat(220.0)
-        let width = CGFloat(220.0)
+        let height = CGFloat(150.0)
+        let width = CGFloat(150.0)
         for i in 1...4 {
             for j in 1...7 {
                 let tempDisplaySampleLayer = AVSampleBufferDisplayLayer()
@@ -34,6 +34,20 @@ class ViewController: NSViewController, GCDAsyncSocketDelegate {
         }
     }
 
+    @IBAction func zoomIn(_ sender: Any) {
+        print("zooming in")
+        let str="zoomIn"
+        let zoomInPacket=Packet(type: PacketType(rawValue: 100000),id:3, payload: str.data(using: .utf8) as! Data)
+        let udpSocketManager=SocketManager.sharedManager
+        udpSocketManager.broadcastPacket(str)
+    }
+    @IBAction func zoomOut(_ sender: Any) {
+        print("zooming out")
+        let str="zoomOut"
+        let zoomInPacket=Packet(type: PacketType(rawValue: 100000),id:3, payload: str.data(using: .utf8) as! Data)
+        let udpSocketManager=SocketManager.sharedManager
+        udpSocketManager.broadcastPacket(str)
+    }
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
